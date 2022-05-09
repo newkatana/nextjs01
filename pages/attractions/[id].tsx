@@ -26,7 +26,7 @@ const Page = () => {
   useEffect(() => {
     if(id){
         setLoading(true)
-    fetch('https://nextjs01-puce.vercel.app/api/attractions/'+id)
+    fetch('https://nextjs01-n3r0f6jxj-newkatana.vercel.app/api/attractions/'+id)
       .then((res) => res.json())
       .then((data) => {
         setData(data[0])
