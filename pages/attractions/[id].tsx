@@ -11,7 +11,7 @@ type Data = {
     coverimage: string,
     detail: string,
     latitude: string,
-    longitude: string
+    longtitude: string
  }
 
 const Page = () => {
@@ -19,7 +19,7 @@ const Page = () => {
   const { id } = router.query
 
   const [data, setData] = useState<Data>({
-      id:'', name:'', coverimage: '', detail: '',latitude:'',longtitude:''
+      id:'', name:'', coverimage: '', detail: '', latitude:'', longtitude:''
   })
   const [isLoading, setLoading] = useState(false)
 
@@ -58,7 +58,7 @@ const Page = () => {
                     {data.detail}
                   </Typography>
                   <Typography variant="body2" color="text.secondary" noWrap={false}>
-                    {data.latitude}, {data.longitude}
+                    {data.latitude}, {data.longtitude}
                   </Typography>
                 </CardContent>
               </Card>
