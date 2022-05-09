@@ -23,6 +23,7 @@ const Page = () => {
   })
   const [isLoading, setLoading] = useState(false)
 
+  
   useEffect(() => {
     if(id){
         setLoading(true)
