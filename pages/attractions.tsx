@@ -1,3 +1,5 @@
+let baseUrl = process.env.Vercel_URL
+
 import Link from 'next/link'
 import { InferGetServerSidePropsType } from 'next'
 
@@ -13,7 +15,7 @@ type Data = {
  }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:3000/api/attractions')
+  const res = await fetch(baseUrl +'/api/attractions')
   const data: Data[] = await res.json()
 
   return {
