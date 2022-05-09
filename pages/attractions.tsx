@@ -13,7 +13,7 @@ type Data = {
  }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('https://nextjs01-n3r0f6jxj-newkatana.vercel.app/api/attractions')
+  const res = await fetch('http://localhost:3000/api/attractions')
   const data: Data[] = await res.json()
 
   return {
