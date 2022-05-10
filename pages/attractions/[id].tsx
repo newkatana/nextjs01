@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import {
     Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
   } from '@mui/material';
+import configData from "../../components/config.json";
 
 type Data = { 
     id: string,
@@ -22,12 +23,10 @@ const Page = () => {
       id:'', name:'', coverimage: '', detail: '', latitude:'', longtitude:''
   })
   const [isLoading, setLoading] = useState(false)
-
-  
   useEffect(() => {
     if(id){
         setLoading(true)
-      fetch(process.env.SERV_URL+'/api/attractions/'+id)
+      fetch(configData.SERVER_URL+'/api/attractions/'+id)
         .then((res) => res.json())
         .then((data) => {
         setData(data[0])

@@ -4,7 +4,7 @@ import { InferGetServerSidePropsType } from 'next'
 import {
   Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
 } from '@mui/material';
-
+import configData from "../components/config.json";
 
 type Data = { 
     id: string,
@@ -14,8 +14,7 @@ type Data = {
  }
 
 export const getServerSideProps = async () => {
-
-  const res = await fetch(process.env.SERV_URL+'/api/attractions')
+  const res = await fetch(configData.SERVER_URL+'/api/attractions')
   const data: Data[] = await res.json()
 
   return {
@@ -48,7 +47,7 @@ function Page({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) 
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Link href={"/attractions/"+ attraction.id}>
+                  <Link href={"attractions/"+ attraction.id}>
                     <Button size="small">Learn More</Button>
                   </Link>
                 </CardActions>
