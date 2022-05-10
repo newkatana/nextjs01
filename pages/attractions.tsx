@@ -16,7 +16,6 @@ type Data = {
 export const getServerSideProps = async () => {
   const res = await fetch(configData.SERVER_URL+'/api/attractions')
   const data: Data[] = await res.json()
-
   return {
     props: {
       data,

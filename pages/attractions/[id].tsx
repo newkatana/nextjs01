@@ -14,7 +14,6 @@ type Data = {
     latitude: string,
     longtitude: string
  }
-
 const Page = () => {
   const router = useRouter()
   const { id } = router.query
