@@ -23,12 +23,19 @@ const Page = () => {
   })
   const [isLoading, setLoading] = useState(false)
 
+  
   useEffect(() => {
     if(id){
         setLoading(true)
+<<<<<<< HEAD
       fetch(process.env.SERV_URL+'/api/attractions/'+id)
         .then((res) => res.json())
         .then((data) => {
+=======
+    fetch('https://nextjs01-puce.vercel.app/api/attractions/'+id)
+      .then((res) => res.json())
+      .then((data) => {
+>>>>>>> 397ee424aa0129a632293a3f13fa595705802f0b
         setData(data[0])
         setLoading(false)
       })
