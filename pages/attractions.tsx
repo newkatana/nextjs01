@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { InferGetServerSidePropsType } from 'next'
-
 import {
   Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
 } from '@mui/material';
+
 
 type Data = { 
     id: string,
@@ -13,7 +14,8 @@ type Data = {
  }
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:3000/api/attractions')
+
+  const res = await fetch(process.env.SERV_URL+'/api/attractions')
   const data: Data[] = await res.json()
 
   return {

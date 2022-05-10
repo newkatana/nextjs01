@@ -26,9 +26,9 @@ const Page = () => {
   useEffect(() => {
     if(id){
         setLoading(true)
-    fetch('http://localhost:3000/api/attractions/'+id)
-      .then((res) => res.json())
-      .then((data) => {
+      fetch(process.env.SERV_URL+'/api/attractions/'+id)
+        .then((res) => res.json())
+        .then((data) => {
         setData(data[0])
         setLoading(false)
       })
