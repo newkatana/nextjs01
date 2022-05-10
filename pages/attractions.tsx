@@ -5,7 +5,6 @@ import {
   Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
 } from '@mui/material';
 
-
 type Data = { 
     id: string,
     name: string,
