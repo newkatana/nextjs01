@@ -14,12 +14,8 @@ type Data = {
  }
 
 export const getServerSideProps = async () => {
-<<<<<<< HEAD
 
   const res = await fetch(process.env.SERV_URL+'/api/attractions')
-=======
-  const res = await fetch('https://nextjs01-puce.vercel.app/api/attractions')
->>>>>>> 397ee424aa0129a632293a3f13fa595705802f0b
   const data: Data[] = await res.json()
 
   return {
