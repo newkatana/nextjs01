@@ -1,6 +1,6 @@
 
 {
-    "SERVER_URL": "http://localhost:3000",
+    "SERVER_URL": "https://nextjs01-puce.vercel.app",
     "THEME_COLORS": {
       "PRIMARY": "#007bff",
       "SECONDARY": "#fc3"
