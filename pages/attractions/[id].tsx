@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import {
-    Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button,Skeleton
+    Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
   } from '@mui/material';
 import configData from "../../components/config.json";
 
@@ -34,15 +34,7 @@ const Page = () => {
     }
   }, [id])
 
-  if (isLoading) return (
-    <>
-    <Container maxWidth="md">
-      <Skeleton variant="rectangular" width={210} height={118} />
-      <Skeleton />
-      <Skeleton width="60%" />
-    </Container>
-    </>
-    )
+  if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No data</p>
 
   return (

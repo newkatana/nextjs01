@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { InferGetServerSidePropsType } from 'next'
 import {
-  Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button,Skeleton
+  Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
 } from '@mui/material';
 import configData from "../components/config.json";
 
@@ -13,31 +13,20 @@ type Data = {
     detail: string
  }
 
- const Page = () => {
-  const [data, setData] = useState(null)
-  const [isLoading, setLoading] = useState(false)
+export const getServerSideProps = async () => {
+  const res = await fetch(configData.SERVER_URL+'/api/attractions')
+  const data: Data[] = await res.json()
+  return {
+    props: {
+      data,
+    },
+  }
+}
 
-  useEffect(() => {
-    setLoading(true)
-    fetch(configData.SERVER_URL+'/api/attractions')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data)
-        setLoading(false)
-      })
-  }, [])
 
-  if (isLoading) return (
-  <>
-  <Container maxWidth="lg">
-    <Skeleton variant="rectangular" width={210} height={118} />
-    <Skeleton />
-    <Skeleton width="60%" />
-  </Container>
-  </>
-  )
-  if (!data) return <p>No data</p>
 
+
+function Page({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
       <div>
         <Container maxWidth="lg">
