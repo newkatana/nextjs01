@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import {
-    Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button
+    Container, Grid, Card, CardActions, CardMedia, CardContent, Typography,Button,Skeleton
   } from '@mui/material';
 import configData from "../../components/config.json";
 
@@ -25,7 +25,7 @@ const Page = () => {
   useEffect(() => {
     if(id){
         setLoading(true)
-      fetch(configData.SERVER_URL+'/api/attractions/'+id)
+        fetch(configData.SERVER_URL+'/api/attractions/'+id)
         .then((res) => res.json())
         .then((data) => {
         setData(data[0])
@@ -34,7 +34,15 @@ const Page = () => {
     }
   }, [id])
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return (
+    <>
+    <Container maxWidth="md">
+      <Skeleton variant="rectangular" width={210} height={118} />
+      <Skeleton />
+      <Skeleton width="60%" />
+    </Container>
+    </>
+    )
   if (!data) return <p>No data</p>
 
   return (

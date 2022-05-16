@@ -2,6 +2,8 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import React from 'react'
 
+
+
 const Navbar = () => {
     return (
         <nav>
